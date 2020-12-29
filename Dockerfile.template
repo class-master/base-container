@@ -14,7 +14,10 @@ RUN echo myuser
 
 RUN useradd -m -s /bin/bash myuser && \
     echo "myuser:goldenrams" | chpasswd && adduser myuser sudo
-    
+
+RUN mkdir -p /home/myuser/csc331 && \
+    chown myuser:myuser /home/myuser/csc331
+
 USER myuser
 ENV PATH "/bin:/usr/bin:$PATH"
 WORKDIR "/home/myuser"
