@@ -9,11 +9,14 @@ RUN apt-get update -qq --fix-missing && \
     apt-get install -qq -y build-essential tmux git gdb wget nano vim sudo
 
 # Create user and add to sudo list
-
 RUN echo myuser
-
 RUN useradd -m -s /bin/bash myuser && \
     echo "myuser:goldenrams" | chpasswd && adduser myuser sudo
+
+# Setup gdb-peda
+RUN git clone https://github.com/longld/peda.git && \
+    echo "source ~/peda/peda.py" > /home/myuser/.gdbinit && \
+    chown myuser:myuser /home/myuser/.gdbinit
 
 RUN mkdir -p /home/myuser/csc331 && \
     chown myuser:myuser /home/myuser/csc331
