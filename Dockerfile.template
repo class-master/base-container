@@ -21,6 +21,14 @@ RUN git clone https://github.com/longld/peda.git && \
 RUN mkdir -p /home/myuser/csc331 && \
     chown myuser:myuser /home/myuser/csc331
 
+# Setup vim and nano
+RUN echo "set tabstop=2" > /home/myuser/.vimrc && \
+    echo "set shiftwidth=2" >> /home/myuser/.vimrc && \
+    echo "set expandtab" >> /home/myuser/.vimrc && \
+    echo "set tabsize 4" > /home/myuser/.nanorc
+    chown myuser:myuser /home/myuser/.vimrc && \
+    chown myuser:myuser /home/myuser/.nanorc
+
 USER myuser
 ENV PATH "/bin:/usr/bin:$PATH"
 ENV USER "myuser"
