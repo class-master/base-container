@@ -11,5 +11,5 @@ fi
 sed "s/myuser/${USER}/g" Dockerfile.template > Dockerfile.current
 
 docker image rm csc-container | true
-docker build -t csc-container:latest -f Dockerfile.current
+docker build -t csc-container:latest -f Dockerfile.current .
 
