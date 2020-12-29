@@ -20,5 +20,6 @@ RUN mkdir -p /home/myuser/csc331 && \
 
 USER myuser
 ENV PATH "/bin:/usr/bin:$PATH"
+ENV USER "myuser"
 WORKDIR "/home/myuser"
 CMD ["/bin/bash"]
