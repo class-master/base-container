@@ -4,6 +4,8 @@
 # We will start from a base Ubuntu 18.04
 FROM ubuntu:18.04
 
+ENV USER="$USER"
+
 # Install baseline software
 RUN apt-get update --fix-missing && \
     apt-get install -y build-essential tmux git gdb wget nano vim sudo
