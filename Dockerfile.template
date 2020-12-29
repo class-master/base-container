@@ -15,7 +15,7 @@ RUN useradd -m -s /bin/bash myuser && \
 
 # Setup gdb-peda
 RUN git clone https://github.com/longld/peda.git && \
-    echo "source ~/peda/peda.py" > /home/myuser/.gdbinit && \
+    echo "source /peda/peda.py" > /home/myuser/.gdbinit && \
     chown myuser:myuser /home/myuser/.gdbinit
 
 RUN mkdir -p /home/myuser/csc331 && \
