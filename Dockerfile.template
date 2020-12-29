@@ -25,7 +25,7 @@ RUN mkdir -p /home/myuser/csc331 && \
 RUN echo "set tabstop=2" > /home/myuser/.vimrc && \
     echo "set shiftwidth=2" >> /home/myuser/.vimrc && \
     echo "set expandtab" >> /home/myuser/.vimrc && \
-    echo "set tabsize 4" > /home/myuser/.nanorc
+    echo "set tabsize 4" > /home/myuser/.nanorc && \
     chown myuser:myuser /home/myuser/.vimrc && \
     chown myuser:myuser /home/myuser/.nanorc
 
