@@ -7,10 +7,13 @@ FROM ubuntu:18.04
 ENV USER="$USER"
 
 # Install baseline software
-RUN apt-get update --fix-missing && \
-    apt-get install -y build-essential tmux git gdb wget nano vim sudo
+RUN apt-get update -qq --fix-missing && \
+    apt-get install -qq -y build-essential tmux git gdb wget nano vim sudo
 
 # Create user and add to sudo list
+
+RUN echo $USER
+
 RUN useradd -m -s /bin/bash $USER && \
     echo "$USER:goldenrams" | chpasswd && adduser $USER sudo
     
