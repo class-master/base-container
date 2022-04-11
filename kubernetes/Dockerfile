@@ -1,0 +1,10 @@
+FROM ubuntu:18.04
+
+USER root
+
+RUN apt-get update && sudo apt-get install -y apt-transport-https curl
+RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+RUN apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+RUN apt-get update
+RUN apt-get install -y kubelet kubeadm kubectl
+RUN apt-mark hold kubelet kubeadm kubectl
