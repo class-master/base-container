@@ -6,7 +6,7 @@ FROM ubuntu:18.04
 
 # Install baseline software
 RUN apt-get update -qq --fix-missing && \
-    apt-get install -qq -y build-essential tmux git gdb wget nano vim sudo wamerican
+    apt-get install -qq -y build-essential tmux git gdb wget nano vim sudo wamerican gcc-multilib valgrind
 
 # Create user and add to sudo list
 RUN echo myuser
